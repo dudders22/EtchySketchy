@@ -1,0 +1,35 @@
+html{
+    height: 100%;
+    margin: 0px;
+}
+
+body{
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 0px
+}
+
+.grid{
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+.gridRow{
+    display: flex;
+    flex-grow: 1;
+}
+
+.cell{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid;
+    border-width: 1px;
+    border-color: grey;
+    flex-grow: 1;
+    color: antiquewhite;
+    font-size: larger;
+}
