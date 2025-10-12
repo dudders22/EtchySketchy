@@ -1,7 +1,12 @@
+:root{
+    --painted-cell-colour: rgb(136 100 219);
+}
+
 html{
     height: 100%;
     margin: 0px;
 }
+
 
 body{
     background-color: black;
@@ -11,10 +16,31 @@ body{
     margin: 0px
 }
 
-.grid{
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10%;
+    background-color: cadetblue;
+    color: black;
+}
+
+.body{
     display: flex;
     flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid{
+    height: 80%;
+    width: auto;
+    aspect-ratio: 1/1;
+    display: flex;
     flex-direction: column;
+    border-style: solid;
+    border-width: 10px;
+    border-color: blanchedalmond;
 }
 
 .gridRow{
@@ -26,10 +52,11 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    border: solid;
-    border-width: 1px;
-    border-color: grey;
     flex-grow: 1;
     color: antiquewhite;
     font-size: larger;
+}
+
+.cell.paintedCell{
+    background-color: var(--painted-cell-colour)
 }
