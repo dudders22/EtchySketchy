@@ -1,4 +1,6 @@
 const grid = document.querySelector('.grid');
+const pixelInput = document.querySelector('#pixelCount');
+const pixelSubmit = document.querySelector('#resetBtn');
 rgbArr = [136,100,219];
 
 //---I need to look back to the notes to see if what I'm doing matches them next time I'm on---
@@ -10,19 +12,28 @@ function addCell(gridRow, celltext){
     gridRow.appendChild(cell);
 }
 
-function addRow(cols, row){
+function addRow(len){
     const gridRow = document.createElement('div');
     gridRow.classList.add('gridRow');
     grid.appendChild(gridRow);
-    for (let c = 0; c < cols; c++){
-        const celltext = String(row) + '-' + String(c);
+    for (let c = 0; c < len; c++){
+        const celltext = String(len) + '-' + String(c);
         addCell(gridRow, celltext);
     } 
 }
 
-function createGrid(rows,cols){
-    for (let r = 0; r < rows; r++){
-        addRow(cols, r);
+function createGrid(){
+    //Delete existing rows.
+    let rows = document.querySelectorAll('.gridRow');
+    rows.forEach((row) => row.remove())
+    
+    //revert to 24 for invalid input (I'm not adjusting for text, but if this was real I should)
+    let pixels = pixelInput.value;
+    if (pixels > 100 | pixels < 0){
+        pixels = 24
+    }
+    for (let r = 0; r < pixels; r++){
+        addRow(pixels);
     }
 }
 
@@ -33,7 +44,7 @@ function colourUpdate(targ){
 
 function randomAdjust(colour){
     //Adust colour up or down by up to 30
-    const rand = Math.ceil(Math.random()*60) - 30
+    const rand = Math.ceil(Math.random()*30) - 15
     //Max value of rgb is 255. Manually force numbers up from zero, or down from 255.
     if (colour + rand < 0 ){
         return colour - rand;
@@ -50,4 +61,5 @@ function addTrail(e){
     cell.classList.add('paintedCell');
 }
 
-createGrid(24,24);
+createGrid();
+pixelSubmit.addEventListener('click',createGrid);
