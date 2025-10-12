@@ -1,5 +1,4 @@
 const grid = document.querySelector('.grid');
-const rootSelector = document.querySelector(':root');
 rgbArr = [136,100,219];
 
 //---I need to look back to the notes to see if what I'm doing matches them next time I'm on---
@@ -27,10 +26,9 @@ function createGrid(rows,cols){
     }
 }
 
-function colourUpdate(){
+function colourUpdate(targ){
     rgbArr = rgbArr.map(randomAdjust);
-    console.log(rgbArr);
-    rootSelector.style.setProperty('--painted-cell-colour', `rgb(${rgbArr[0]} ${rgbArr[1]} ${rgbArr[2]})` );
+    targ.style.setProperty('background-color', `rgb(${rgbArr[0]} ${rgbArr[1]} ${rgbArr[2]})` );
 }
 
 function randomAdjust(colour){
@@ -48,8 +46,7 @@ function randomAdjust(colour){
 
 function addTrail(e){
     const cell = e.target;
-    const node = e.node;
-    colourUpdate();
+    colourUpdate(cell);
     cell.classList.add('paintedCell');
 }
 
