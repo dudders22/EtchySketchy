@@ -1,6 +1,8 @@
 3rd or 4th exercise for TOP - making an etch-a-sketch type thing.
 https://www.theodinproject.com/paths/foundations/courses/foundations
 
+**This version is to get individual cells to change colours. Both versions are kinda cool though so want to keep the original one available**
+
 Hints/Steps from site:
 - Be careful with borders and margins, as they can adjust the size of the squares!
 - Set up a “hover” effect so that the grid divs change color when your mouse passes over them, leaving a (pixelated) trail through your grid like a pen would.
